@@ -1,0 +1,50 @@
+{
+    "tasks": [
+        {
+            "label": "cmake build",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/01/build"
+            },
+            "command": "cmake --build .",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/01/build"
+            },
+            "command": "./day01",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Build and run",
+            "dependsOn": [
+                "cmake build",
+                "run"
+            ],
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "cppcheck",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/01/src"
+            },
+            "command": "cppcheck --enable=all --suppress=missingIncludeSystem .",
+            "group": {
+                "kind": "build"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
