@@ -4,7 +4,7 @@
             "label": "cmake build",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}/01/build"
+                "cwd": "${workspaceRoot}/${relativeFileDirname}/../build"
             },
             "command": "cmake --build .",
             "group": {
@@ -15,9 +15,9 @@
             "label": "run",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}/01/build"
+                "cwd": "${workspaceRoot}/${relativeFileDirname}/../build"
             },
-            "command": "./day01",
+            "command": "./day*",
             "group": {
                 "kind": "build"
             }
@@ -38,7 +38,7 @@
             "label": "cppcheck",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}/01/src"
+                "cwd": "${workspaceRoot}/${relativeFileDirname}"
             },
             "command": "cppcheck --enable=all --suppress=missingIncludeSystem .",
             "group": {

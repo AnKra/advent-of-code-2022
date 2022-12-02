@@ -5,23 +5,13 @@
 #include <string>
 #include <vector>
 
-class Line : public std::string {
-  friend std::istream &operator>>(std::istream &is, Line &line) {
-    return std::getline(is, line);
-  }
-};
-
-template <class OutputIterator>
-void read_lines(std::istream &is, OutputIterator dest) {
-  typedef std::istream_iterator<Line> InputIterator;
-  std::copy(InputIterator(is), InputIterator(), dest);
-}
+#include <common/load_input.h>
 
 int main() {
   // read calories
   std::vector<std::string> lines;
   std::ifstream is("../input/input.txt");
-  read_lines(is, std::back_inserter(lines));
+  common::read_lines<common::Line>(is, std::back_inserter(lines));
 
   // calculate calories per elf
   std::vector<int> calories;
