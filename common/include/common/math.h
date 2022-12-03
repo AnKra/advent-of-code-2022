@@ -1,5 +1,5 @@
-#ifndef ADVENT_OF_CODE_2022_MATH_H_
-#define ADVENT_OF_CODE_2022_MATH_H_
+#ifndef ADVENT_OF_CODE_2022_COMMON_MATH_H_
+#define ADVENT_OF_CODE_2022_COMMON_MATH_H_
 
 namespace common {
 
@@ -17,4 +17,4 @@ inline int move_into_range(int i, int n, int min, int max) {
 
 } // namespace common
 
-#endif // ADVENT_OF_CODE_2022_MATH_H_
+#endif // ADVENT_OF_CODE_2022_COMMON_MATH_H_

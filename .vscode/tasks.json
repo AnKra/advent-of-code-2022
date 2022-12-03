@@ -1,6 +1,17 @@
 {
     "tasks": [
         {
+            "label": "cmake init",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/${relativeFileDirname}/../build"
+            },
+            "command": "cmake ..",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
             "label": "cmake build",
             "type": "shell",
             "options": {
@@ -23,9 +34,21 @@
             }
         },
         {
-            "label": "Build and run",
+            "label": "test",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/${relativeFileDirname}/../build"
+            },
+            "command": "./day*_test",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Build, test, run",
             "dependsOn": [
                 "cmake build",
+                "test",
                 "run"
             ],
             "dependsOrder": "sequence",

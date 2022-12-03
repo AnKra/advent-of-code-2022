@@ -1,8 +1,8 @@
-#ifndef ADVENT_OF_CODE_2022_LOAD_INPUT_H_
-#define ADVENT_OF_CODE_2022_LOAD_INPUT_H_
+#ifndef ADVENT_OF_CODE_2022_COMMON_LOAD_INPUT_H_
+#define ADVENT_OF_CODE_2022_COMMON_LOAD_INPUT_H_
 
-#include <algorithm>
 #include <istream>
+#include <iterator>
 #include <string>
 
 namespace common {
@@ -21,4 +21,4 @@ void read_lines(std::istream &is, OutputIterator dest) {
 
 } // namespace common
 
-#endif // ADVENT_OF_CODE_2022_LOAD_INPUT_H_
+#endif // ADVENT_OF_CODE_2022_COMMON_LOAD_INPUT_H_
