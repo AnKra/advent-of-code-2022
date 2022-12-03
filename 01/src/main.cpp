@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <iterator>
+#include <numeric>
 #include <string>
 #include <vector>
 
@@ -15,7 +16,6 @@ int main() {
 
   // calculate calories per elf
   std::vector<int> calories;
-
   auto sum = 0;
   for (auto line : lines) {
     if (!line.empty()) {
@@ -25,20 +25,18 @@ int main() {
       sum = 0;
     }
   }
+  calories.push_back(sum); // add last item
 
   // retrieve max calories value
   auto max_calories =
-      *std::max_element(std::begin(calories), std::end(calories));
+      *std::max_element(std::cbegin(calories), std::cend(calories));
   std::cout << "Part 1: " << max_calories << std::endl;
 
   // retrieve 3 max calories values
-  auto sum_max_calories = 0;
-  for (int i = 0; i < 3; ++i) {
-    auto max_element =
-        std::max_element(std::begin(calories), std::end(calories));
-    sum_max_calories += *max_element;
-    calories.erase(max_element);
-  }
+  std::nth_element(calories.begin(), calories.begin() + 3, calories.end(),
+                   std::greater{});
+  auto sum_max_calories =
+      std::accumulate(calories.cbegin(), calories.cbegin() + 3, 0);
   std::cout << "Part 2: " << sum_max_calories << std::endl;
 
   std::cout << "done" << std::endl;
